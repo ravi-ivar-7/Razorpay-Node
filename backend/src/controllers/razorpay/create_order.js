@@ -11,22 +11,24 @@ const razorPayInstance = new Razorpay({
 
 const createOrder = async (req, res) => {
     try {
+        const {amount} = req.body
         const params = {
-            amount:100,// req.params.amount,
+            amount:amount, 
             currency: "INR",
             receipt: uuidv4(),
             payment_capture: "1"
         };
 
-        const response = await razorPayInstance.orders.create(params);
+        // const response = await razorPayInstance.orders.create(params);
 
         const orderDetails = {
-            orderId: response.id,
-            receiptId: response.receipt,
+            key_id: process.env.RAZORPAY_KEY_ID,
+            orderId:123,// response.id,
+            receiptId:'abcd',// response.receipt,
             amount: params.amount,
             currency: params.currency,
             orderDate: new Date,
-            status: response.status,
+            status:'created',// response.status,
         };
 
         return res.status(200).json({ message: "order created", orderDetails });

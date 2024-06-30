@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../utils/axiosInstance';
 import useToast from "../hooks/useToast";
 
-const InputForm = () => {
+const PaymentInput = () => {
     const [formData, setFormData] = useState({ email: 'testing@razpay.com', amount: '' });
     const [loading, setLoading] = useState(false);
-
-    const { showToast, showErrorToast } = useToast();
+    const navigate = useNavigate();
+    const { showErrorToast, showSuccessToast } = useToast();
 
     const handleFormChange = (e) => {
         const { name, value } = e.target;
@@ -20,17 +21,13 @@ const InputForm = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const orderDetails = await axiosInstance.get('/payment/test-payment', formData);
-
-            const message = orderDetails.data.message || 'Form submitted successfully!';
-            showToast(message);
-
-            // const paymentStatus = await axiosInstance.post("/payment/verify-order", orderDetails);
-
-
+            const response = await axiosInstance.post('/payment/create-order', formData);
+            const orderDetails = response.data.orderDetails;
+            showSuccessToast(`Order created. Checkout to make payment.`);
+            navigate('/payment-checkout', { state: { orderDetails } });
         } catch (error) {
-            console.error('Error:', error);
-            showErrorToast("Razorpay SDK failed to load. Are you online?");
+            console.error('ORDER CREATING ERROR:', error);
+            showErrorToast(`${error}`);
         } finally {
             setLoading(false);
         }
@@ -77,4 +74,4 @@ const InputForm = () => {
     );
 };
 
-export default InputForm;
+export default PaymentInput;

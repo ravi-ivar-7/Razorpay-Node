@@ -1,15 +1,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import InputForm from '../components/PaymentInput';
 
-const Payment = () => {
-  return(
+const Payment = ({ childComponent: ChildComponent, paymentData }) => {
+  return (
     <div>
-      <Navbar/>
-      <InputForm/>
-      
+      <Navbar />
+      <ChildComponent paymentData={paymentData} />
     </div>
-  ) 
+  );
 };
 
 export default Payment;
+
