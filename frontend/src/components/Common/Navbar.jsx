@@ -53,20 +53,20 @@ const Navbar = () => {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
   };
 
-  const buttonStyle = {
-    padding: '0.5rem 1rem',
-    backgroundColor: '#fff',
-    color: '#0072ff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease, color 0.3s ease',
-  };
+  // const buttonStyle = {
+  //   padding: '0.5rem 1rem',
+  //   backgroundColor: '#fff',
+  //   color: '#0072ff',
+  //   border: 'none',
+  //   borderRadius: '4px',
+  //   cursor: 'pointer',
+  //   transition: 'background-color 0.3s ease, color 0.3s ease',
+  // };
 
-  const buttonHoverStyle = {
-    backgroundColor: '#0072ff',
-    color: '#fff',
-  };
+  // const buttonHoverStyle = {
+  //   backgroundColor: '#0072ff',
+  //   color: '#fff',
+  // };
 
   return (
     <nav style={navbarStyle}>

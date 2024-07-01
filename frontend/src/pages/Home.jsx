@@ -1,8 +1,8 @@
 // src/pages/HomePage.js
-import React, { useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Intro from "../components/Intro";
-import useToast from "../hooks/useToast";
+import React from "react";
+import Navbar from "../components/Common/Navbar";
+import Intro from "../components/Home/Intro";
+import PaymentPage from "../components/Payment/PaymentPage";
 
 const HomePage = () => {
 
@@ -11,6 +11,7 @@ const HomePage = () => {
     <div>
       <Navbar />
       <Intro />
+      <PaymentPage/>
     </div>
   );
 };

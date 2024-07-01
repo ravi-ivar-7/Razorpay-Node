@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axiosInstance from '../utils/axiosInstance';
+import axiosInstance from '../../utils/axiosInstance';
 
 const PaymentCheckout = () => {
     const location = useLocation();
@@ -8,7 +8,9 @@ const PaymentCheckout = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
+
     const loadScript = async (url) => {
+        setLoading(true)
         return new Promise((resolve) => {
             const script = document.createElement("script");
             script.src = url;
@@ -45,9 +47,14 @@ const PaymentCheckout = () => {
                         setLoading(false);
                         navigate('/payment-success', { state: { paymentDetails: paymentDetails.data } });
                     }
+                    else{
+                        setLoading(false);
+                        navigate('/payment-failed',{state:{error:"payment verification failed.", orderDetails}});
+                    }
                 } catch (error) {
-                    console.error("Error verifying order:", error);
-                    alert("Failed to verify order. Please try again later.");
+                    setLoading(false);
+                    navigate('/payment-failed', { state: {error, orderDetails} });
+                    console.error("ORDER VERIFICATION ERROR:", error);
                 }
             },
             modal: {
@@ -62,8 +69,12 @@ const PaymentCheckout = () => {
 
         const loadScriptRes = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
         if (!loadScriptRes) {
+            setLoading(false);
             alert("Razorpay SDK failed to load. Are you online?");
             return;
+        }
+        else{
+            setLoading(false);
         }
 
         const razorpay = new window.Razorpay(options);
@@ -106,3 +117,5 @@ const PaymentCheckout = () => {
 };
 
 export default PaymentCheckout;
+
+

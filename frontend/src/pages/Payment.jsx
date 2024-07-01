@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Common/Navbar';
 
 const Payment = ({ childComponent: ChildComponent, paymentData }) => {
   return (

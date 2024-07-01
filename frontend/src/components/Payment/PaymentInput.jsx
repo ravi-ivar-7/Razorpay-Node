@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../utils/axiosInstance';
-import useToast from "../hooks/useToast";
+import axiosInstance from '../../utils/axiosInstance';
+import useToast from "../../hooks/useToast";
 
 const PaymentInput = () => {
     const [formData, setFormData] = useState({ email: 'testing@razpay.com', amount: '' });

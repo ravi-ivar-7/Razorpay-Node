@@ -27,8 +27,8 @@ const verifyOrder = async (req, res) => {
             const paymentDetails = {
                 paymentId: razorpay_payment_id,
                 signature: razorpay_signature,
-                orderId: paymentDetail.orderId,
-                receiptId: paymentDetail.receiptId,
+                orderId: orderDetails.orderId,
+                receiptId: orderDetails.receiptId,
 
                 amount: orderDetails.amount,
                 receiptId: orderDetails.receiptId,
