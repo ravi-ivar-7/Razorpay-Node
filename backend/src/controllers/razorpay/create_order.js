@@ -23,8 +23,8 @@ const createOrder = async (req, res) => {
 
         const orderDetails = {
             key_id: process.env.RAZORPAY_KEY_ID,
-            orderId:123,// response.id,
-            receiptId:'abcd',// response.receipt,
+            orderId:"order_NnSFpOIIOnpMIC",// response.id,
+            receiptId:'475b712f-6876-4f2c-82d3-885893b90485',// response.receipt,
             amount: params.amount,
             currency: params.currency,
             orderDate: new Date,
