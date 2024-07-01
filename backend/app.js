@@ -52,6 +52,7 @@ http.createServer(app).listen(HTTP_PORT, () => {
   console.log(`HTTP SERVER LISTENING ON ${HOST}:${HTTP_PORT}`);
 });
 
+app.use('/', routes);
 app.use('/payment', routes);
 
 
