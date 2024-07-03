@@ -1,5 +1,4 @@
 import './App.css';
-import { Analytics } from "@vercel/analytics/react"
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/Home';
@@ -32,7 +31,6 @@ function App() {
             <Route path="/payment-failed" element={<Payment childComponent={PaymentFailed} paymentData={paymentData} />} />
 
           </Routes>
-          <Analytics />
         </div>
       </BrowserRouter>
     </div>
