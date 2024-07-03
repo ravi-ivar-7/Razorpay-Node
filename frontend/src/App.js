@@ -8,6 +8,7 @@ import PaymentCheckout from './components/Payment/PaymentCheckout';
 import PaymentInput    from './components/Payment/PaymentInput';
 import PaymentSuccess  from './components/Payment/PaymentSuccess';
 import PaymentFailed   from './components/Payment/PaymentFailed';
+import MatomoTracker from './utils/matonoTracker';
 
 const paymentData = {
 
@@ -19,8 +20,10 @@ function App() {
     <div className="App">
       <Toaster />
       <BrowserRouter>
+      <MatomoTracker/>
         <div className='pages'>
           <Routes>
+            
             <Route path="/" Component={HomePage} />
 
             <Route path="/payment" element={<Payment childComponent={PaymentInput} paymentData={paymentData} />} />
