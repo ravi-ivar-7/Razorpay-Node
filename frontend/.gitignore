@@ -25,3 +25,4 @@ privateKey.pem
 key.pem
 server.crt
 .env
+.vercel
