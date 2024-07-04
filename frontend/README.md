@@ -1,4 +1,4 @@
-<div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_OTRCN2adbgcOzY/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
+<!-- <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_OTRCN2adbgcOzY/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
   <script>
     (function(){
       var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
@@ -7,7 +7,4 @@
       rzp && rzp.init && rzp.init()}})();
   </script>
 </div>
-    
-
-
-https://rzp.io/l/L6fdtMO
+https://rzp.io/l/L6fdtMO -->
